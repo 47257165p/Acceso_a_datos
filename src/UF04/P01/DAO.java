@@ -10,11 +10,12 @@ import org.xmldb.api.modules.CollectionManagementService;
 
 import javax.xml.xquery.*;
 import java.io.File;
+import java.io.Serializable;
 
 /**
  * Created by 47257165p on 29/03/16.
  */
-public class DAO {
+public class DAO implements Serializable{
 
     private static String driver;
     private static String uri;
@@ -137,5 +138,61 @@ public class DAO {
         xqs.setProperty("serverName", ip);
         xqs.setProperty("port", port);
         return xqs.getConnection();
+    }
+
+    /**
+     * @return
+     */
+    public static String getDriver() {
+        return driver;
+    }
+
+    /**
+     * @param driver
+     */
+    public static void setDriver(String driver) {
+        DAO.driver = driver;
+    }
+
+    /**
+     * @return
+     */
+    public static String getUri() {
+        return uri;
+    }
+
+    /**
+     * @param uri
+     */
+    public static void setUri(String uri) {
+        DAO.uri = uri;
+    }
+
+    /**
+     * @return
+     */
+    public static String getUser() {
+        return user;
+    }
+
+    /**
+     * @param user
+     */
+    public static void setUser(String user) {
+        DAO.user = user;
+    }
+
+    /**
+     * @return
+     */
+    public static String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password
+     */
+    public static void setPassword(String password) {
+        DAO.password = password;
     }
 }
